@@ -6,7 +6,7 @@ const etapa = [
         id: 'localizacao',
         html: `
         <div class="etapa">
-            <img src="images/localizacao.png" width="150" height="150" alt="Localização"/>
+            <img src="images/localizacao.png" class="etapa-img" width="150" height="150" alt="Localização"/>
             <p><strong>Para prosseguir, é necessário permitir acesso à localização.</strong></p>
             <div class="d-grid gap-2 col-6 mx-auto">
                 <button class="btn btn-outline-secondary" onclick="voltar()">cancelar</button>
@@ -18,7 +18,7 @@ const etapa = [
         id: 'documento',
         html: `
         <div class="etapa">
-            <img src="images/documento.png" width="160" height="150" alt="Documento"/>
+            <img src="images/documento.png" class="etapa-img" width="160" height="150" alt="Documento"/>
             <p><strong>Precisamos de uma foto do seu documento com foto.<br>Certifique-se de que:</strong></p>
             <ul class="text-start d-inline-block">
                 <li>Esteja fora do plástico;</li>
@@ -35,8 +35,8 @@ const etapa = [
         id: 'selfie',
         html: `
         <div class="etapa">
-            <img src="images/selfie.png" width="150" height="180" alt="Selfie"/>
-            <p>Precisamos de uma foto sua!<br>Certifique-se de que:</p>
+            <img src="images/selfie.png" class="etapa-img" width="150" height="180" alt="Selfie"/>
+            <p><strong>Precisamos de uma foto sua!<br>Certifique-se de que:</strong></p>
             <ul class="text-start d-inline-block">
                 <li>A foto seja tirada em um local bem iluminado;</li>
                 <li>Seu rosto esteja centralizado;</li>
@@ -52,8 +52,8 @@ const etapa = [
         id: 'selfie-doc',
         html: `
         <div class="etapa">
-            <img src="images/selfie-doc.png" width="150" height="160" alt="Selfie com documento"/>
-            <p>Precisamos de uma foto sua com o seu documento em mãos!<br>Certifique-se de que:</p>
+            <img src="images/selfie-doc.png" class="etapa-img" width="150" height="160" alt="Selfie com documento"/>
+            <p><strong>Precisamos de uma foto sua com o seu documento em mãos!<br>Certifique-se de que:</strong></p>
             <ul class="text-start d-inline-block">
                 <li>A foto seja tirada em um local bem iluminado;</li>
                 <li>Seu rosto esteja centralizado;</li>
@@ -69,7 +69,7 @@ const etapa = [
         id: 'sucesso',
         html: `
         <div class="etapa">
-            <img src="images/sucesso.png" width="150" height="160" alt="Sucesso"/>
+            <img src="images/sucesso.png" class="etapa-img" width="150" height="160" alt="Sucesso"/>
             <p><strong>Autenticação realizada com sucesso!</strong></p>
             <div class="d-grid gap-2 col-6 mx-auto mt-3">
                 <button class="btn btn-success" onclick="reiniciar()">finalizar</button>
