@@ -9,7 +9,6 @@ const etapa = [
             <img src="images/localizacao.png" class="etapa-img" width="150" height="150" alt="Localização"/>
             <p><strong>Para prosseguir, é necessário permitir acesso à localização.</strong></p>
             <div class="d-grid gap-2 col-6 mx-auto">
-                <button class="btn btn-outline-secondary" onclick="voltar()">cancelar</button>
                 <button id="geoBtn" class="btn btn-success" onclick="capturarLocalizacao()">capturar localização</button>
             </div>
         </div>`
