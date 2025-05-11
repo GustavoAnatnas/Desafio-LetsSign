@@ -66,11 +66,27 @@ const etapa = [
         </div>`
     },
     {
+    id: 'resumo',
+    html: `
+    <div class="etapa">
+        <img src="images/sucesso.png" class="etapa-img" width="150" height="150" alt="Resumo"/>
+        <p><strong>Todas as etapas foram concluídas com sucesso!</strong></p>
+        <p class="mt-3">
+            Deseja <strong class="text-success">assinar o documento</strong> ou <strong class="text-warning">editar suas informações</strong>?
+        </p>
+
+        <div class="d-grid gap-2 col-6 mx-auto mt-4">
+            <button class="btn btn-outline-secondary" onclick="reiniciar()">editar informações</button>
+            <button class="btn btn-success" onclick="assinarDocumento()">assinar documento</button>
+        </div>
+    </div>`
+},
+    {
         id: 'sucesso',
         html: `
         <div class="etapa">
             <img src="images/sucesso.png" class="etapa-img" width="150" height="160" alt="Sucesso"/>
-            <p><strong>Autenticação realizada com sucesso!</strong></p>
+            <p><strong>Documento autenticado e assinado com sucesso!</strong></p>
             <div class="d-grid gap-2 col-6 mx-auto mt-3">
                 <button class="btn btn-success" onclick="reiniciar()">finalizar</button>
             </div>
@@ -127,11 +143,10 @@ function capturarLocalizacao() {
             navigator.geolocation.getCurrentPosition(
                 (position) => {
                     alert(`Localização capturada:\n\nLatitude: ${position.coords.latitude}\nLongitude: ${position.coords.longitude}`);
-
                     localizacaoCapturada = true;
                     btn.textContent = "continuar";
                     btn.disabled = false;
-                    btn.onclick = proximaEtapa; // agora pode avançar
+                    btn.onclick = proximaEtapa;
                 },
                 (error) => {
                     alert("Erro ao obter localização: " + error.message);
@@ -143,7 +158,7 @@ function capturarLocalizacao() {
             alert("Seu navegador não suporta geolocalização.");
         }
     } else {
-        proximaEtapa(); // fallback
+        proximaEtapa();
     }
 }
 
@@ -151,7 +166,6 @@ function abrirCamera() {
     const btn = document.getElementById("btnCamera");
 
     if (!cameraAberta) {
-        // Abre a câmera
         navigator.mediaDevices.getUserMedia({ video: true })
             .then((stream) => {
                 streamAtivo = stream;
@@ -164,7 +178,6 @@ function abrirCamera() {
                 video.style.maxWidth = '400px';
                 video.classList.add("mt-3");
 
-                // Adiciona o vídeo na página (pode ajustar o local)
                 btn.parentElement.appendChild(video);
 
                 cameraAberta = true;
@@ -174,7 +187,6 @@ function abrirCamera() {
                 alert("Erro ao acessar a câmera: " + error.message);
             });
     } else {
-        // Encerra a câmera e avança
         if (streamAtivo) {
             streamAtivo.getTracks().forEach(track => track.stop());
         }
@@ -184,6 +196,11 @@ function abrirCamera() {
 
         proximaEtapa();
     }
+}
+
+function assinarDocumento() {
+    alert("Documento autenticado e assinado com sucesso!");
+    proximaEtapa();
 }
 
 renderizaEtapa();
